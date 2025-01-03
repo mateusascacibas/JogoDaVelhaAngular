@@ -1,0 +1,15 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo "Instalando dependências"
+      - yum install -y httpd
+  build:
+    commands:
+      - echo "Construindo a aplicação"
+  post_build:
+    commands:
+      - echo "Build concluído"
+artifacts:
+  files:
+    - '**/*'
