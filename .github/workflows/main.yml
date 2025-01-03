@@ -1,0 +1,23 @@
+name: CI/CD Pipeline
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Código
+        uses: actions/checkout@v3
+
+      - name: Instalar Dependências
+        run: npm install
+
+      - name: Buildar Projeto
+        run: npm run build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy (Simulado)
+        run: echo "Deploy Completo!"
